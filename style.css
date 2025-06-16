@@ -71,14 +71,19 @@ h1{
 }
 
 #close-btn {
-  background: none;
-  border: none;
-  font-size: 28px;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 5px;
+  right: 5px;
+  background: #ccc;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
+  text-align: center;
+  font-weight: bold;
 }
+
 
 /* Optional: loading spinner */
 #loading {
