@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Historic Cities of India</title>
-  <h1 >Local History Explorer</h1>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-DtsQswrG.css">
-</head>
-<body>
-  <div id="map"></div>
-  <div id="city-info" class="hidden">
-    <button id="close-btn">x</button>
-    <h2 id="city-name">City Name</h2>
-    <img id="city-image" src="" alt="City Image">
-    <p id="city-description">Description goes here.</p>
-  </div>
-  <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Local History Explorer</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  </head>
+  <body>
+    <h1>Local History Explorer</h1>
+    <div id="map"></div>
+    <div id="city-info" class="hidden">
+      <button id="close-btn">x</button>
+      <h2 id="city-name">City Name</h2>
+      <img id="city-image" src="" alt="City Image" />
+      <p id="city-description">Description goes here.</p>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  </body>
 </html>
-
