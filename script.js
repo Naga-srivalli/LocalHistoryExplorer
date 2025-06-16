@@ -5,23 +5,19 @@ const map = L.map('map', {
   maxBoundsViscosity: 1.0
 }).setView([22.5, 78], 5);
 
-// Modern map tiles
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; OpenStreetMap & CartoDB',
   subdomains: 'abcd'
 }).addTo(map);
 
-// Optional: scale control
 L.control.scale().addTo(map);
 
-// Custom marker icon
 const customIcon = L.icon({
   iconUrl: 'https://cdn-icons-png.flaticon.com/512/854/854878.png',
   iconSize: [30, 30],
   iconAnchor: [15, 30]
 });
 
-// Fetch cities from cities.json (since you're using GitHub Pages)
 fetch('cities.json')
   .then(response => response.json())
   .then(cities => {
@@ -46,3 +42,8 @@ fetch('cities.json')
     });
   })
   .catch(error => console.error('Error loading cities.json:', error));
+
+//  Close button functionality should be here at the END:
+document.getElementById('close-btn').addEventListener('click', () => {
+  document.getElementById('city-info').classList.remove('show');
+});
