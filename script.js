@@ -11,7 +11,6 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r
   subdomains: 'abcd'
 }).addTo(map);
 
-
 // Optional: scale control
 L.control.scale().addTo(map);
 
@@ -22,8 +21,8 @@ const customIcon = L.icon({
   iconAnchor: [15, 30]
 });
 
-// Fetch cities
-fetch('http://localhost:3000/api/cities')
+// Fetch cities from cities.json (since you're using GitHub Pages)
+fetch('cities.json')
   .then(response => response.json())
   .then(cities => {
     cities.forEach(city => {
@@ -45,9 +44,5 @@ fetch('http://localhost:3000/api/cities')
         document.getElementById('city-info').classList.add('show');
       });
     });
-  });
-
-// Close panel
-document.getElementById('close-btn').addEventListener('click', () => {
-  document.getElementById('city-info').classList.remove('show');
-});
+  })
+  .catch(error => console.error('Error loading cities.json:', error));
