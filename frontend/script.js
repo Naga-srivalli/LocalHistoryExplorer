@@ -23,7 +23,7 @@ const customIcon = L.icon({
 });
 
 // Fetch cities
-fetch('http://localhost:3000/api/cities')
+ fetch('/api/cities')
   .then(response => response.json())
   .then(cities => {
     cities.forEach(city => {

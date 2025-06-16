@@ -7,26 +7,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Serve Frontend static files from /frontend/dist
+// Serve Frontend build
 app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
-// API Route to serve cities.json
+// Backend API route
 app.get('/api/cities', (req, res) => {
   const filePath = path.join(__dirname, 'cities.json');
   fs.readFile(filePath, (err, data) => {
-    if (err) {
-      return res.status(500).send("Error reading city data");
-    }
-    try {
-      const cities = JSON.parse(data);
-      res.json(cities);
-    } catch (parseErr) {
-      res.status(500).send("Error parsing city data");
-    }
+    if (err) return res.status(500).send("Error reading city data");
+    res.json(JSON.parse(data));
   });
 });
 
-// For any other route, serve index.html (React App)
+// Handle frontend routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
@@ -35,4 +28,3 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
